@@ -5,10 +5,102 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
   width: 100vw;
-  height: 1500px;
+  height: 1000px;
   background-color: white;
   color: black;
-  font-size: 16px;
+  font-size: 14px;
   font-family: "Red Hat Text", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.ultimate-container {
+  width: 100%;
+  height: 1000px;
+  margin: 0;
+  background-color: dodgerblue;
+  display: flex;
+  flex-direction: row;
+}
+
+.desserts-container {
+  width: 880px;
+  height: 3000px;
+  background-color: plum;
+  padding: 30px 30px 0 0;
+}
+
+.carts-container {
+  width: calc(100% - 850px);
+  height: 3000px;
+  color: white;
+  background-color: orange;
+}
+
+#site-header {
+  font-size: 25px;
+  position: relative;
+  top: 3px;
+  left: 50px;
+}
+
+.all-desserts {
+  width: 90%;
+  height: 800px;
+  background-color: purple;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.dessert-box {
+  width: 167px;
+  height: 275px;
+  background-color: limegreen;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  flex: calc(100% / 3);
+  margin: 0 auto;
+  border: 2px solid black;
+  justify-content: space-evenly;
+}
+
+.dessert-img {
+  width: 175px;
+  height: 155px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.add-cart-btn {
+  width: 125px;
+  height: 40px;
+  background-color: pink;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 0 auto;
+  border-radius: 25px;
+  position: relative;
+  top: -30px;
+}
+
+.dessert-name-price {
+  width: 170px;
+  height: 70px;
+  background-color: darkslateblue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  left: 35px;
+  bottom: 10px;
 }
