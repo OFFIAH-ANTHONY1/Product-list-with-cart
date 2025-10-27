@@ -65,7 +65,6 @@ const products = [
   },
 ];
 
-// DOM Elements
 const productList = document.getElementById("productList");
 const cartItemsContainer = document.getElementById("cartItems");
 const cartCount = document.getElementById("cart-count");
@@ -77,15 +76,13 @@ const orderModalTotal = document.getElementById("orderModalTotal");
 const confirmOrderBtn = document.getElementById("confirmOrderBtn");
 const newOrderBtn = document.getElementById("newOrderBtn");
 
-// 🧠 Load saved cart from localStorage, or start empty
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// 🧩 Helper: Save cart to localStorage
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// 🧩 Render product cards
+// Render product cards
 function renderProducts() {
   productList.innerHTML = "";
   products.forEach((prod) => {
@@ -118,7 +115,7 @@ function renderProducts() {
   });
 }
 
-// 🛒 Add / Update Cart
+// Add/ Update Cart
 productList.addEventListener("click", (e) => {
   const id = Number(e.target.closest("[data-id]")?.dataset.id);
   if (!id) return;
@@ -136,10 +133,10 @@ productList.addEventListener("click", (e) => {
 
   renderProducts();
   updateCart();
-  saveCart(); // ✅ Save after every change
+  saveCart();
 });
 
-// 🧾 Update Cart Display
+//  Update Cart Display
 function updateCart() {
   cartItemsContainer.innerHTML = "";
 
@@ -172,7 +169,6 @@ function updateCart() {
   orderTotal.textContent = `$${total.toFixed(2)}`;
 }
 
-// ♻️ Handle Quantity Changes in Cart
 cartItemsContainer.addEventListener("click", (e) => {
   if (e.target.classList.contains("qty-btn")) {
     const id = Number(e.target.dataset.id);
@@ -187,11 +183,11 @@ cartItemsContainer.addEventListener("click", (e) => {
 
     renderProducts();
     updateCart();
-    saveCart(); // ✅ Save updates
+    saveCart(); //  Save updates
   }
 });
 
-// 🧾 Confirm Order Modal
+// Confirm Order Modal
 confirmOrderBtn.addEventListener("click", () => {
   orderModal.classList.remove("hidden");
   orderDetails.innerHTML = "";
@@ -203,11 +199,11 @@ confirmOrderBtn.addEventListener("click", () => {
     <div class="selected-item-cont">
     <img src="${item.image}" class="cart-img" width="40px" height="40px">
     <div class="selected-item-details">
-    <p>${item.name}</p>
-    <p>${item.qty}x @$${item.price.toFixed(2)}</p>
+    <p>${item.name}<br>${item.qty}x <span> </span> @$${item.price.toFixed(
+      2
+    )}</p>
     </div>
     <p>$${(item.price * item.qty).toFixed(2)}</p>
-    </div>
     </div>
     `;
     orderDetails.appendChild(div);
@@ -223,11 +219,11 @@ newOrderBtn.addEventListener("click", () => {
   cart = [];
   renderProducts();
   updateCart();
-  saveCart(); // ✅ Clear storage too
+  saveCart(); // Clear storage too
 });
 
 // 🚀 Initialize page (load products and cart)
 window.addEventListener("DOMContentLoaded", () => {
   renderProducts();
-  updateCart(); // ✅ Shows empty image on load
+  updateCart(); // Shows empty image on load
 });
