@@ -10,7 +10,7 @@ const products = [
   {
     id: 2,
     category: "Crème Brûlée",
-    name: "Vanilla Bean Crème Brûlée",
+    name: "Vanilla Crème Brûlée",
     price: 7.0,
     image: "images/image-creme-brulee-desktop.jpg",
   },
@@ -87,6 +87,11 @@ function renderProducts() {
   productList.innerHTML = "";
   products.forEach((prod) => {
     const inCart = cart.find((item) => item.id === prod.id);
+
+    // console.log("Available items in cart are:"s, cart);
+
+    console.log("incart variable:", inCart);
+
     const quantity = inCart ? inCart.qty : 0;
 
     const div = document.createElement("div");
@@ -213,7 +218,7 @@ confirmOrderBtn.addEventListener("click", () => {
   orderModalTotal.textContent = `$${total.toFixed(2)}`;
 });
 
-// 🆕 Start New Order
+// Start New Order
 newOrderBtn.addEventListener("click", () => {
   orderModal.classList.add("hidden");
   cart = [];
@@ -222,7 +227,7 @@ newOrderBtn.addEventListener("click", () => {
   saveCart(); // Clear storage too
 });
 
-// 🚀 Initialize page (load products and cart)
+// Initialize page (load products and cart)
 window.addEventListener("DOMContentLoaded", () => {
   renderProducts();
   updateCart(); // Shows empty image on load
